@@ -1,3 +1,12 @@
+/*
+Canvas Library
+---------------------------
+This is a collection of a few years of randomly fucking around in javascript.
+This library works in base javascript, and should allow full control over the image data in a canvas library at pixel precision.
+I tried to keep things as fundumental as possible, though there should be a ton of flexability in what's possible here.
+-Gwen
+*/
+
 // 2D Vector
 class vec2 {
     x = 0;
