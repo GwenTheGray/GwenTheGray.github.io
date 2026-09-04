@@ -1,11 +1,3 @@
-/*
-Canvas Library
----------------------------
-This is a collection of a few years of randomly fucking around in javascript.
-This library works in base javascript, and should allow full control over the image data in a canvas library at pixel precision.
-I tried to keep things as fundumental as possible, though there should be a ton of flexability in what's possible here.
--Gwen
-*/
 // 2D Vector
 class vec2 {
     x = 0;
@@ -156,6 +148,10 @@ class canvas {
         x = ~~x || 0;
         y = ~~y || 0;
         // lock px and py to within the canvas
+        if (x < 0 || x > w)
+            return;
+        if (y < 0 || y > h)
+            return;
         let px = x % this.w;
         let py = y % this.h;
         let i = (py * this.w + px) * 4
@@ -169,6 +165,10 @@ class canvas {
         x = ~~x || 0;
         y = ~~y || 0;
         // lock px and py to within the canvas
+        if (x < 0 || x > w)
+            return;
+        if (y < 0 || y > h)
+            return;
         let px = x % this.w;
         let py = y % this.h;
         let i = (py * this.w + px) * 4
@@ -225,6 +225,7 @@ class canvas {
     }
     drawCircle(x, y, s = 1, r = 0, g = 0, b = 0, a = 255) {
         // https://en.wikipedia.org/wiki/Midpoint_circle_algorithm
+        s = ~~s || 0;
         let t1 = s / 16;
         let i = s;
         let j = 0;
@@ -248,6 +249,7 @@ class canvas {
     }
     drawFilledCircle(x, y, s = 1, r = 0, g = 0, b = 0, a = 255) {
         // https://en.wikipedia.org/wiki/Midpoint_circle_algorithm
+        s = ~~s || 0;
         let t1 = s / 16;
         let i = s;
         let j = 0;
