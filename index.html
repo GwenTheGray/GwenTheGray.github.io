@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gwen's Landing Page</title>
     <script src="canvas.js"></script>
     <style>
-    :root {
-        --c: 150;
-        --G1: hsl(var(--c), 20%, 40%);
-        --G2: hsl(var(--c), 20%, 80%);
-    }
-    * {
-        padding: 0;
-        margin: 0;
-    }
-    html, body {
-        height: 100%;
-    }
-    body {
-        margin: 0 5%;
-        background-color: var(--G1)
-    }
-    .content {
-        display:flex;
-        flex-direction:column;
-        height: 100%;
-        background-color: var(--G2);
-    }
-    .header {
-        display:flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
-    .body {
-        flex: 1 1 auto;
-        min-height: 0;
-        overflow: hidden;
-    }
-</style>
+        :root {
+            --c: 150;
+            --G1: hsl(var(--c), 20%, 40%);
+            --G2: hsl(var(--c), 20%, 80%);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0 5%;
+            background-color: var(--G1)
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: var(--G2);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .body {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
+
 <body>
     <div class="content">
         <div class="header">
@@ -58,22 +67,23 @@
                 var w = c.w;
                 var h = c.h;
 
-                window.addEventListener('resize', function() {
+                window.addEventListener('resize', function () {
                     c.resizeToParent();
                     w = c.w;
                     h = c.h;
                 })
 
-                setInterval(function() {
+                setInterval(function () {
                     c.clear();
                     let t = new Date(); // lazy way to get a timer number
                     let d = 100;
-                    c.drawCircle(w/2 + Math.sin(t/1000) * d,h/2 - Math.cos(t/ 1000) * d, 40);
-                    c.drawCircle(w/2 - Math.sin(t/1000) * d,h/2 + Math.cos(t/ 1000) * d, 25);
-                    c.drawCircle(w/2,h/2, 250 + Math.sin(t/1000) * 50);
-                },20);
+                    c.drawCircle(w / 2 + Math.sin(t / 1000) * d, h / 2 - Math.cos(t / 1000) * d, 40);
+                    c.drawCircle(w / 2 - Math.sin(t / 1000) * d, h / 2 + Math.cos(t / 1000) * d, 25);
+                    c.drawCircle(w / 2, h / 2, 250 + Math.sin(t / 1000) * 50);
+                }, 20);
             </script>
         </div>
     </div>
 </body>
+
 </html>
